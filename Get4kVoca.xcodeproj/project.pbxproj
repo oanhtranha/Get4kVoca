@@ -8,20 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		C224AD082163476700EE28FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C224AD072163476700EE28FE /* AppDelegate.swift */; };
-		C224AD0A2163476700EE28FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C224AD092163476700EE28FE /* ViewController.swift */; };
-		C224AD0D2163476700EE28FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C224AD0B2163476700EE28FE /* Main.storyboard */; };
 		C224AD0F2163476900EE28FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C224AD0E2163476900EE28FE /* Assets.xcassets */; };
 		C224AD122163476900EE28FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C224AD102163476900EE28FE /* LaunchScreen.storyboard */; };
+		C224AD222163632A00EE28FE /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C224AD212163632A00EE28FE /* Home.storyboard */; };
+		C224AD242163635200EE28FE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C224AD232163635200EE28FE /* HomeViewController.swift */; };
+		C224AD26216363FF00EE28FE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C224AD25216363FF00EE28FE /* HomeViewModel.swift */; };
+		C224AD2821636B9000EE28FE /* Exercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C224AD2721636B9000EE28FE /* Exercise.storyboard */; };
+		C224AD2C216370CA00EE28FE /* ExcerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C224AD2B216370CA00EE28FE /* ExcerciseViewController.swift */; };
+		C224AD2E216370DF00EE28FE /* ExcerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C224AD2D216370DF00EE28FE /* ExcerciseViewModel.swift */; };
+		C224AD312163783E00EE28FE /* voca4kWord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C224AD2F2163783E00EE28FE /* voca4kWord.xcdatamodeld */; };
+		C224AD3421637A7700EE28FE /* QuestionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C224AD3321637A7700EE28FE /* QuestionManager.swift */; };
+		C224AD3621637AC000EE28FE /* KeyAnswer.txt in Resources */ = {isa = PBXBuildFile; fileRef = C224AD3521637AC000EE28FE /* KeyAnswer.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C224AD042163476700EE28FE /* Get4kVoca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Get4kVoca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C224AD072163476700EE28FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C224AD092163476700EE28FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C224AD0C2163476700EE28FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C224AD0E2163476900EE28FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C224AD112163476900EE28FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C224AD132163476900EE28FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C224AD212163632A00EE28FE /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		C224AD232163635200EE28FE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C224AD25216363FF00EE28FE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		C224AD2721636B9000EE28FE /* Exercise.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Exercise.storyboard; sourceTree = "<group>"; };
+		C224AD2B216370CA00EE28FE /* ExcerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseViewController.swift; sourceTree = "<group>"; };
+		C224AD2D216370DF00EE28FE /* ExcerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseViewModel.swift; sourceTree = "<group>"; };
+		C224AD302163783E00EE28FE /* voca4kWord.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = voca4kWord.xcdatamodel; sourceTree = "<group>"; };
+		C224AD3321637A7700EE28FE /* QuestionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionManager.swift; sourceTree = "<group>"; };
+		C224AD3521637AC000EE28FE /* KeyAnswer.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeyAnswer.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,12 +76,6 @@
 				C224AD1B216347AA00EE28FE /* Managers */,
 				C224AD1A2163478000EE28FE /* Core Data */,
 				C224AD192163477100EE28FE /* View Controllers */,
-				C224AD072163476700EE28FE /* AppDelegate.swift */,
-				C224AD092163476700EE28FE /* ViewController.swift */,
-				C224AD0B2163476700EE28FE /* Main.storyboard */,
-				C224AD0E2163476900EE28FE /* Assets.xcassets */,
-				C224AD102163476900EE28FE /* LaunchScreen.storyboard */,
-				C224AD132163476900EE28FE /* Info.plist */,
 			);
 			path = Get4kVoca;
 			sourceTree = "<group>";
@@ -75,6 +83,8 @@
 		C224AD192163477100EE28FE /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C224AD2A216370A600EE28FE /* Exercise */,
+				C224AD292163709A00EE28FE /* Home */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -82,6 +92,8 @@
 		C224AD1A2163478000EE28FE /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				C224AD3521637AC000EE28FE /* KeyAnswer.txt */,
+				C224AD2F2163783E00EE28FE /* voca4kWord.xcdatamodeld */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -89,6 +101,7 @@
 		C224AD1B216347AA00EE28FE /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				C224AD3321637A7700EE28FE /* QuestionManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -103,6 +116,9 @@
 		C224AD1D216347E900EE28FE /* Application Delegate */ = {
 			isa = PBXGroup;
 			children = (
+				C224AD102163476900EE28FE /* LaunchScreen.storyboard */,
+				C224AD132163476900EE28FE /* Info.plist */,
+				C224AD072163476700EE28FE /* AppDelegate.swift */,
 			);
 			path = "Application Delegate";
 			sourceTree = "<group>";
@@ -110,6 +126,8 @@
 		C224AD1E2163480500EE28FE /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				C224AD212163632A00EE28FE /* Home.storyboard */,
+				C224AD2721636B9000EE28FE /* Exercise.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -117,6 +135,7 @@
 		C224AD1F2163480F00EE28FE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C224AD0E2163476900EE28FE /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -126,6 +145,24 @@
 			children = (
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C224AD292163709A00EE28FE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C224AD232163635200EE28FE /* HomeViewController.swift */,
+				C224AD25216363FF00EE28FE /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C224AD2A216370A600EE28FE /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				C224AD2B216370CA00EE28FE /* ExcerciseViewController.swift */,
+				C224AD2D216370DF00EE28FE /* ExcerciseViewModel.swift */,
+			);
+			path = Exercise;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,9 +223,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C224AD222163632A00EE28FE /* Home.storyboard in Resources */,
+				C224AD3621637AC000EE28FE /* KeyAnswer.txt in Resources */,
+				C224AD2821636B9000EE28FE /* Exercise.storyboard in Resources */,
 				C224AD122163476900EE28FE /* LaunchScreen.storyboard in Resources */,
 				C224AD0F2163476900EE28FE /* Assets.xcassets in Resources */,
-				C224AD0D2163476700EE28FE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,22 +238,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C224AD0A2163476700EE28FE /* ViewController.swift in Sources */,
 				C224AD082163476700EE28FE /* AppDelegate.swift in Sources */,
+				C224AD3421637A7700EE28FE /* QuestionManager.swift in Sources */,
+				C224AD26216363FF00EE28FE /* HomeViewModel.swift in Sources */,
+				C224AD2C216370CA00EE28FE /* ExcerciseViewController.swift in Sources */,
+				C224AD312163783E00EE28FE /* voca4kWord.xcdatamodeld in Sources */,
+				C224AD242163635200EE28FE /* HomeViewController.swift in Sources */,
+				C224AD2E216370DF00EE28FE /* ExcerciseViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C224AD0B2163476700EE28FE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C224AD0C2163476700EE28FE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C224AD102163476900EE28FE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -348,7 +384,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2E5UT2C56T;
-				INFOPLIST_FILE = Get4kVoca/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Get4kVoca/Application Delegate/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -366,7 +402,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2E5UT2C56T;
-				INFOPLIST_FILE = Get4kVoca/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Get4kVoca/Application Delegate/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -400,6 +436,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C224AD2F2163783E00EE28FE /* voca4kWord.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C224AD302163783E00EE28FE /* voca4kWord.xcdatamodel */,
+			);
+			currentVersion = C224AD302163783E00EE28FE /* voca4kWord.xcdatamodel */;
+			path = voca4kWord.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C224ACFC2163476700EE28FE /* Project object */;
 }

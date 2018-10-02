@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ExcerciseViewController.swift
 //  Get4kVoca
 //
 //  Created by Oanh tran on 10/2/18.
@@ -8,13 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ExcerciseViewController: UIViewController {
 
+    @IBOutlet private var viewModel: ExcerciseViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
-
 }
-
