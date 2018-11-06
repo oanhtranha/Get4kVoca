@@ -16,10 +16,49 @@
 		C224AD2821636B9000EE28FE /* Exercise.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C224AD2721636B9000EE28FE /* Exercise.storyboard */; };
 		C224AD2C216370CA00EE28FE /* ExcerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C224AD2B216370CA00EE28FE /* ExcerciseViewController.swift */; };
 		C224AD2E216370DF00EE28FE /* ExcerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C224AD2D216370DF00EE28FE /* ExcerciseViewModel.swift */; };
-		C224AD312163783E00EE28FE /* voca4kWord.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C224AD2F2163783E00EE28FE /* voca4kWord.xcdatamodeld */; };
+		C224AD312163783E00EE28FE /* Voca4kWords.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C224AD2F2163783E00EE28FE /* Voca4kWords.xcdatamodeld */; };
 		C224AD3421637A7700EE28FE /* QuestionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C224AD3321637A7700EE28FE /* QuestionManager.swift */; };
 		C224AD3621637AC000EE28FE /* KeyAnswer.txt in Resources */ = {isa = PBXBuildFile; fileRef = C224AD3521637AC000EE28FE /* KeyAnswer.txt */; };
+		C2431E83219185DA009E8E51 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2431E82219185DA009E8E51 /* DataManager.swift */; };
+		C2431E8A21918927009E8E51 /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2431E8621918926009E8E51 /* CocoaLumberjack.framework */; };
+		C2431E9621918B27009E8E51 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2431E9421918B27009E8E51 /* RxAtomic.framework */; };
+		C2431E9721918B27009E8E51 /* Sync.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2431E9521918B27009E8E51 /* Sync.framework */; };
+		C2431E9921918BDE009E8E51 /* CocoaLumberjackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2431E9821918BDE009E8E51 /* CocoaLumberjackSwift.framework */; };
+		C2431E9E21918C28009E8E51 /* CocoaLumberjack.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2431E9A21918C27009E8E51 /* CocoaLumberjack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2431E9F21918C28009E8E51 /* CocoaLumberjackSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2431E9B21918C27009E8E51 /* CocoaLumberjackSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2431EA021918C28009E8E51 /* RxAtomic.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2431E9C21918C28009E8E51 /* RxAtomic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2431EA121918C28009E8E51 /* Sync.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2431E9D21918C28009E8E51 /* Sync.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2431EA421918E20009E8E51 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2431EA321918E20009E8E51 /* BaseViewModel.swift */; };
+		C2431EA621918EB2009E8E51 /* ManagerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2431EA521918EB2009E8E51 /* ManagerProvider.swift */; };
+		C2941EEE218AF8B8008F0681 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2941EED218AF8B8008F0681 /* Alamofire.framework */; };
+		C2941EF1218AF8D8008F0681 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2941EF0218AF8D8008F0681 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2941EF7218AFBBC008F0681 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2941EF2218AFBBC008F0681 /* RxSwift.framework */; };
+		C2941EF9218AFBBC008F0681 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2941EF4218AFBBC008F0681 /* SwiftyJSON.framework */; };
+		C2941EFA218AFBBC008F0681 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2941EF5218AFBBC008F0681 /* RxCocoa.framework */; };
+		C2941F01218AFC34008F0681 /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2941EFC218AFC34008F0681 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2941F04218AFC34008F0681 /* SwiftyJSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2941EFF218AFC34008F0681 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2941F05218AFC34008F0681 /* RxCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2941F00218AFC34008F0681 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C2941EEF218AF8C2008F0681 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C2431E9E21918C28009E8E51 /* CocoaLumberjack.framework in CopyFiles */,
+				C2431E9F21918C28009E8E51 /* CocoaLumberjackSwift.framework in CopyFiles */,
+				C2431EA021918C28009E8E51 /* RxAtomic.framework in CopyFiles */,
+				C2431EA121918C28009E8E51 /* Sync.framework in CopyFiles */,
+				C2941F01218AFC34008F0681 /* RxSwift.framework in CopyFiles */,
+				C2941F04218AFC34008F0681 /* SwiftyJSON.framework in CopyFiles */,
+				C2941F05218AFC34008F0681 /* RxCocoa.framework in CopyFiles */,
+				C2941EF1218AF8D8008F0681 /* Alamofire.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C224AD042163476700EE28FE /* Get4kVoca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Get4kVoca.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,9 +72,30 @@
 		C224AD2721636B9000EE28FE /* Exercise.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Exercise.storyboard; sourceTree = "<group>"; };
 		C224AD2B216370CA00EE28FE /* ExcerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseViewController.swift; sourceTree = "<group>"; };
 		C224AD2D216370DF00EE28FE /* ExcerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseViewModel.swift; sourceTree = "<group>"; };
-		C224AD302163783E00EE28FE /* voca4kWord.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = voca4kWord.xcdatamodel; sourceTree = "<group>"; };
+		C224AD302163783E00EE28FE /* Voca4kWord.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Voca4kWord.xcdatamodel; sourceTree = "<group>"; };
 		C224AD3321637A7700EE28FE /* QuestionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionManager.swift; sourceTree = "<group>"; };
 		C224AD3521637AC000EE28FE /* KeyAnswer.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KeyAnswer.txt; sourceTree = "<group>"; };
+		C2431E82219185DA009E8E51 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		C2431E8621918926009E8E51 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = Carthage/Build/iOS/CocoaLumberjack.framework; sourceTree = "<group>"; };
+		C2431E9421918B27009E8E51 /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/iOS/RxAtomic.framework; sourceTree = "<group>"; };
+		C2431E9521918B27009E8E51 /* Sync.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sync.framework; path = Carthage/Build/iOS/Sync.framework; sourceTree = "<group>"; };
+		C2431E9821918BDE009E8E51 /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = Carthage/Build/iOS/CocoaLumberjackSwift.framework; sourceTree = "<group>"; };
+		C2431E9A21918C27009E8E51 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = Carthage/Build/iOS/CocoaLumberjack.framework; sourceTree = "<group>"; };
+		C2431E9B21918C27009E8E51 /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = Carthage/Build/iOS/CocoaLumberjackSwift.framework; sourceTree = "<group>"; };
+		C2431E9C21918C28009E8E51 /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/iOS/RxAtomic.framework; sourceTree = "<group>"; };
+		C2431E9D21918C28009E8E51 /* Sync.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sync.framework; path = Carthage/Build/iOS/Sync.framework; sourceTree = "<group>"; };
+		C2431EA321918E20009E8E51 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		C2431EA521918EB2009E8E51 /* ManagerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerProvider.swift; sourceTree = "<group>"; };
+		C2941EED218AF8B8008F0681 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		C2941EF0218AF8D8008F0681 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		C2941EF2218AFBBC008F0681 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		C2941EF4218AFBBC008F0681 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		C2941EF5218AFBBC008F0681 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		C2941EF6218AFBBC008F0681 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
+		C2941EFC218AFC34008F0681 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		C2941EFE218AFC34008F0681 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
+		C2941EFF218AFC34008F0681 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		C2941F00218AFC34008F0681 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +103,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2431E9921918BDE009E8E51 /* CocoaLumberjackSwift.framework in Frameworks */,
+				C2431E9621918B27009E8E51 /* RxAtomic.framework in Frameworks */,
+				C2431E9721918B27009E8E51 /* Sync.framework in Frameworks */,
+				C2431E8A21918927009E8E51 /* CocoaLumberjack.framework in Frameworks */,
+				C2941EF7218AFBBC008F0681 /* RxSwift.framework in Frameworks */,
+				C2941EF9218AFBBC008F0681 /* SwiftyJSON.framework in Frameworks */,
+				C2941EFA218AFBBC008F0681 /* RxCocoa.framework in Frameworks */,
+				C2941EEE218AF8B8008F0681 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +122,7 @@
 			children = (
 				C224AD062163476700EE28FE /* Get4kVoca */,
 				C224AD052163476700EE28FE /* Products */,
+				C2941EEC218AF8B8008F0681 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +137,7 @@
 		C224AD062163476700EE28FE /* Get4kVoca */ = {
 			isa = PBXGroup;
 			children = (
+				C2431EA221918E08009E8E51 /* Base */,
 				C224AD202163482000EE28FE /* Extensions */,
 				C224AD1F2163480F00EE28FE /* Resources */,
 				C224AD1E2163480500EE28FE /* Storyboards */,
@@ -93,7 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				C224AD3521637AC000EE28FE /* KeyAnswer.txt */,
-				C224AD2F2163783E00EE28FE /* voca4kWord.xcdatamodeld */,
+				C224AD2F2163783E00EE28FE /* Voca4kWords.xcdatamodeld */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -102,6 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				C224AD3321637A7700EE28FE /* QuestionManager.swift */,
+				C2431E82219185DA009E8E51 /* DataManager.swift */,
+				C2431EA521918EB2009E8E51 /* ManagerProvider.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -165,6 +237,39 @@
 			path = Exercise;
 			sourceTree = "<group>";
 		};
+		C2431EA221918E08009E8E51 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				C2431EA321918E20009E8E51 /* BaseViewModel.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		C2941EEC218AF8B8008F0681 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C2431E9821918BDE009E8E51 /* CocoaLumberjackSwift.framework */,
+				C2431E9B21918C27009E8E51 /* CocoaLumberjackSwift.framework */,
+				C2431E9421918B27009E8E51 /* RxAtomic.framework */,
+				C2431E9521918B27009E8E51 /* Sync.framework */,
+				C2431E8621918926009E8E51 /* CocoaLumberjack.framework */,
+				C2431E9A21918C27009E8E51 /* CocoaLumberjack.framework */,
+				C2431E9C21918C28009E8E51 /* RxAtomic.framework */,
+				C2431E9D21918C28009E8E51 /* Sync.framework */,
+				C2941F00218AFC34008F0681 /* RxCocoa.framework */,
+				C2941EFC218AFC34008F0681 /* RxSwift.framework */,
+				C2941EFE218AFC34008F0681 /* RxTest.framework */,
+				C2941EFF218AFC34008F0681 /* SwiftyJSON.framework */,
+				C2941EF0218AF8D8008F0681 /* Alamofire.framework */,
+				C2941EF5218AFBBC008F0681 /* RxCocoa.framework */,
+				C2941EF2218AFBBC008F0681 /* RxSwift.framework */,
+				C2941EF6218AFBBC008F0681 /* RxTest.framework */,
+				C2941EF4218AFBBC008F0681 /* SwiftyJSON.framework */,
+				C2941EED218AF8B8008F0681 /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -175,6 +280,8 @@
 				C224AD002163476700EE28FE /* Sources */,
 				C224AD012163476700EE28FE /* Frameworks */,
 				C224AD022163476700EE28FE /* Resources */,
+				C2941EE5218AF71C008F0681 /* ShellScript */,
+				C2941EEF218AF8C2008F0681 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -233,16 +340,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C2941EE5218AF71C008F0681 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxAtomic.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Sync.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CocoaLumberjack.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CocoaLumberjackSwift.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C224AD002163476700EE28FE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C224AD082163476700EE28FE /* AppDelegate.swift in Sources */,
+				C2431E83219185DA009E8E51 /* DataManager.swift in Sources */,
+				C2431EA621918EB2009E8E51 /* ManagerProvider.swift in Sources */,
 				C224AD3421637A7700EE28FE /* QuestionManager.swift in Sources */,
 				C224AD26216363FF00EE28FE /* HomeViewModel.swift in Sources */,
 				C224AD2C216370CA00EE28FE /* ExcerciseViewController.swift in Sources */,
-				C224AD312163783E00EE28FE /* voca4kWord.xcdatamodeld in Sources */,
+				C2431EA421918E20009E8E51 /* BaseViewModel.swift in Sources */,
+				C224AD312163783E00EE28FE /* Voca4kWords.xcdatamodeld in Sources */,
 				C224AD242163635200EE28FE /* HomeViewController.swift in Sources */,
 				C224AD2E216370DF00EE28FE /* ExcerciseViewModel.swift in Sources */,
 			);
@@ -384,6 +523,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2E5UT2C56T;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Get4kVoca/Application Delegate/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -402,6 +545,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2E5UT2C56T;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Get4kVoca/Application Delegate/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -438,13 +585,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C224AD2F2163783E00EE28FE /* voca4kWord.xcdatamodeld */ = {
+		C224AD2F2163783E00EE28FE /* Voca4kWords.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				C224AD302163783E00EE28FE /* voca4kWord.xcdatamodel */,
+				C224AD302163783E00EE28FE /* Voca4kWord.xcdatamodel */,
 			);
-			currentVersion = C224AD302163783E00EE28FE /* voca4kWord.xcdatamodel */;
-			path = voca4kWord.xcdatamodeld;
+			currentVersion = C224AD302163783E00EE28FE /* Voca4kWord.xcdatamodel */;
+			path = Voca4kWords.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

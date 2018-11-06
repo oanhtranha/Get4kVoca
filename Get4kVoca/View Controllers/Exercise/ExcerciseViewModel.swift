@@ -8,6 +8,15 @@
 
 import Foundation
 
-class ExcerciseViewModel: NSObject {
+class ExcerciseViewModel: BaseViewModel {
+    
+    
+    private let questionManager : QuestionManager
+    
+    override init(managerProvider: ManagerProvider = ManagerProvider.sharedInstance) {
+        questionManager = managerProvider.questionManager
+        super.init(managerProvider: managerProvider)
+    }
+    
     
 }

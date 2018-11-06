@@ -13,6 +13,6 @@ class HomeViewController: UIViewController {
     @IBOutlet var viewModel: HomeViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        viewModel.initData()
     }
 }
