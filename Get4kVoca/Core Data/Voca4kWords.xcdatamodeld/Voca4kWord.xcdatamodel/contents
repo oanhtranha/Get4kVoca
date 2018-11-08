@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Question" representedClassName="Question" syncable="YES" codeGenerationType="class">
+    <entity name="Question" representedClassName="Question" syncable="YES">
         <attribute name="answer" attributeType="String" syncable="YES"/>
         <attribute name="exercise" attributeType="String" syncable="YES"/>
         <attribute name="number" attributeType="String" syncable="YES"/>

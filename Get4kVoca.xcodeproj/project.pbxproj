@@ -38,6 +38,11 @@
 		C2941F01218AFC34008F0681 /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2941EFC218AFC34008F0681 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C2941F04218AFC34008F0681 /* SwiftyJSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2941EFF218AFC34008F0681 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C2941F05218AFC34008F0681 /* RxCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2941F00218AFC34008F0681 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2FF9AD62194393C0096207F /* ExerciseSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FF9AD52194393C0096207F /* ExerciseSectionViewModel.swift */; };
+		C2FF9AD921943F8F0096207F /* Question+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FF9AD721943F8F0096207F /* Question+CoreDataClass.swift */; };
+		C2FF9ADA21943F8F0096207F /* Question+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FF9AD821943F8F0096207F /* Question+CoreDataProperties.swift */; };
+		C2FF9ADD219463830096207F /* UnitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FF9ADC219463830096207F /* UnitTableViewCell.swift */; };
+		C2FF9ADF219463960096207F /* ExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FF9ADE219463960096207F /* ExerciseTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -96,6 +101,11 @@
 		C2941EFE218AFC34008F0681 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		C2941EFF218AFC34008F0681 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		C2941F00218AFC34008F0681 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		C2FF9AD52194393C0096207F /* ExerciseSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSectionViewModel.swift; sourceTree = "<group>"; };
+		C2FF9AD721943F8F0096207F /* Question+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Question+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C2FF9AD821943F8F0096207F /* Question+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Question+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C2FF9ADC219463830096207F /* UnitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTableViewCell.swift; sourceTree = "<group>"; };
+		C2FF9ADE219463960096207F /* ExerciseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +147,7 @@
 		C224AD062163476700EE28FE /* Get4kVoca */ = {
 			isa = PBXGroup;
 			children = (
+				C2FF9ADB21943F980096207F /* Models */,
 				C2431EA221918E08009E8E51 /* Base */,
 				C224AD202163482000EE28FE /* Extensions */,
 				C224AD1F2163480F00EE28FE /* Resources */,
@@ -153,6 +164,7 @@
 		C224AD192163477100EE28FE /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C2FF9AD2219438410096207F /* Question */,
 				C224AD2A216370A600EE28FE /* Exercise */,
 				C224AD292163709A00EE28FE /* Home */,
 			);
@@ -233,6 +245,8 @@
 			children = (
 				C224AD2B216370CA00EE28FE /* ExcerciseViewController.swift */,
 				C224AD2D216370DF00EE28FE /* ExcerciseViewModel.swift */,
+				C2FF9ADC219463830096207F /* UnitTableViewCell.swift */,
+				C2FF9ADE219463960096207F /* ExerciseTableViewCell.swift */,
 			);
 			path = Exercise;
 			sourceTree = "<group>";
@@ -268,6 +282,23 @@
 				C2941EED218AF8B8008F0681 /* Alamofire.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C2FF9AD2219438410096207F /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				C2FF9AD52194393C0096207F /* ExerciseSectionViewModel.swift */,
+			);
+			path = Question;
+			sourceTree = "<group>";
+		};
+		C2FF9ADB21943F980096207F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C2FF9AD721943F8F0096207F /* Question+CoreDataClass.swift */,
+				C2FF9AD821943F8F0096207F /* Question+CoreDataProperties.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,15 +406,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				C224AD082163476700EE28FE /* AppDelegate.swift in Sources */,
+				C2FF9ADD219463830096207F /* UnitTableViewCell.swift in Sources */,
 				C2431E83219185DA009E8E51 /* DataManager.swift in Sources */,
 				C2431EA621918EB2009E8E51 /* ManagerProvider.swift in Sources */,
+				C2FF9ADA21943F8F0096207F /* Question+CoreDataProperties.swift in Sources */,
 				C224AD3421637A7700EE28FE /* QuestionManager.swift in Sources */,
+				C2FF9ADF219463960096207F /* ExerciseTableViewCell.swift in Sources */,
 				C224AD26216363FF00EE28FE /* HomeViewModel.swift in Sources */,
 				C224AD2C216370CA00EE28FE /* ExcerciseViewController.swift in Sources */,
+				C2FF9AD62194393C0096207F /* ExerciseSectionViewModel.swift in Sources */,
 				C2431EA421918E20009E8E51 /* BaseViewModel.swift in Sources */,
 				C224AD312163783E00EE28FE /* Voca4kWords.xcdatamodeld in Sources */,
 				C224AD242163635200EE28FE /* HomeViewController.swift in Sources */,
 				C224AD2E216370DF00EE28FE /* ExcerciseViewModel.swift in Sources */,
+				C2FF9AD921943F8F0096207F /* Question+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,7 +488,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -507,7 +543,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

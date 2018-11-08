@@ -70,7 +70,7 @@ extension QuestionManager {
     func importQuestionToDataBase() {
         let dataManager = DataManager()
         let questionManager = QuestionManager(dataManager: dataManager)
-        guard questionManager.checkQuestionsImported() else {
+        guard !questionManager.checkQuestionsImported() else {
             return
         }
         let allQuestions = loadQuestionsFromFile()
@@ -120,12 +120,13 @@ extension QuestionManager {
         
         /*** Read from project txt file ***/
         
-        // File location
-        let fileURLProject = Bundle.main.path(forResource: "ProjectTextFile", ofType: "txt")
         // Read from the file
         var readStringProject = ""
+        guard let fileURLDatabase =  Bundle.main.path(forResource: fileName, ofType: "txt") else {
+            return []
+        }
         do {
-            readStringProject = try String(contentsOfFile: fileURLProject!, encoding: String.Encoding.utf8)
+            readStringProject = try String(contentsOfFile: fileURLDatabase, encoding: String.Encoding.utf8)
         } catch let error as NSError {
             print("Failed reading from URL: \(fileURL), Error: " + error.localizedDescription)
         }
