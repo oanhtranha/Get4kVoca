@@ -10,38 +10,47 @@ import RxSwift
 import CoreData
 import CocoaLumberjackSwift
 
-class UnitSectionViewModel: BaseViewModel {
+class UnitSectionViewModel {
    
-    private let questionManager: QuestionManager
     private (set) var exercises: [String] = []
+    private var exerciceViewModel: [ExerciseViewModel] = []
     let unit: String
-    var expanding: Bool = false
     
-    init(unit: String, questions: [Question], managerProvider: ManagerProvider = ManagerProvider.sharedInstance) {
+    
+    init(unit: String, questions: [Question]) {
         self.unit = unit
-        self.questionManager = managerProvider.questionManager
-        super.init(managerProvider: managerProvider)
         groupQuestionsByExercise(questions: questions)
-        
     }
     
     private func groupQuestionsByExercise(questions: [Question]) {
-        let exercisesDictionary = Dictionary(grouping: questions, by: { $0.exercise })
-        self.exercises = exercisesDictionary.compactMap { (key, _) in
-            return key
+        let exercisesDictionary = Dictionary(grouping: questions, by: { $0.exercise }).sorted(by: { $0.0 ?? "" < $1.0 ?? "" })
+        self.exercises = exercisesDictionary.compactMap { [weak self] (exercise, questionsOfExercise) in
+            self?.exerciceViewModel.append(.init(exercise: exercise, questions: questionsOfExercise))
+            return exercise
         }
-
-//        if let _ = questions[0].part {
-//            let partDictionary = Dictionary(grouping: questions, by: { $0.part }).sorted(by: { ($0.1.first?.number ?? "") < ($1.1.first?.number ?? "") })
-//            for (key, value) in partDictionary {
-//                if let partName =  key {
-//                    self.questions.append(partName.count > 1 ? partName : "Part \(partName)")
-//                    self.questions.append(contentsOf: value)
-//                    self.parts.append(partName)
-//                }
-//            }
-//        } else {
-//            self.questions = questions.sorted(by: { $0.number ?? "" < $1.number ?? "" })
-//        }
     }
+}
+
+class ExerciseViewModel {
+    let exercise: String
+    var parts: [String] = []
+    var questions: [[Question]] = []
+    
+    init(exercise: String?, questions: [Question]) {
+        self.exercise = exercise ?? ""
+        groupQuestionsByPart(questions: questions)
+    }
+    
+    private func groupQuestionsByPart(questions: [Question]) {
+        guard questions.first?.part != "" else {
+            self.questions = [questions]
+            return
+        }
+        let partsDictionary = Dictionary(grouping: questions, by: { $0.part }).sorted(by: { Int($0.1.first?.number ?? "") ?? 0 < Int($1.1.first?.number ?? "") ?? 0  })
+        parts = partsDictionary.compactMap { [weak self] (part, questionsOfPart) in
+            self?.questions.append(questionsOfPart)
+            return part
+        }
+    }
+    
 }

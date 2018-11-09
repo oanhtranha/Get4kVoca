@@ -17,6 +17,7 @@ class ExcerciseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.reloadTableView.drive(onNext: { [weak self] _ in
+            self?.viewModel.initExpandList()
             self?.tableView.reloadData()
         }).disposed(by: disposeBag)
     }
@@ -29,7 +30,7 @@ extension ExcerciseViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // First will always be header
-        return 1 + viewModel.unitDataSource[section].exercises.count 
+        return  viewModel.expandList[section] ?  1 + viewModel.unitDataSource[section].exercises.count : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,10 +51,15 @@ extension ExcerciseViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Expand/hide the section if tapped its header
-//        if indexPath.row == 0 {
-//            sectionIsExpanded[indexPath.section] = !sectionIsExpanded[indexPath.section]
-//
-//            tableView.reloadSections([indexPath.section], with: .automatic)
-//        }
+        if indexPath.row == 0 {
+            viewModel.expandList[indexPath.section] = !viewModel.expandList[indexPath.section]
+            tableView.reloadSections([indexPath.section], with: .automatic)
+        } else {
+            
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0
     }
 }

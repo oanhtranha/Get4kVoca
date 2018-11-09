@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2103B8E2195926400FC11DB /* ExcerciseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2103B8D2195926400FC11DB /* ExcerciseDetailViewController.swift */; };
+		C2103B902195927600FC11DB /* ExcerciceDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2103B8F2195927600FC11DB /* ExcerciceDetailViewModel.swift */; };
 		C224AD082163476700EE28FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C224AD072163476700EE28FE /* AppDelegate.swift */; };
 		C224AD0F2163476900EE28FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C224AD0E2163476900EE28FE /* Assets.xcassets */; };
 		C224AD122163476900EE28FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C224AD102163476900EE28FE /* LaunchScreen.storyboard */; };
@@ -30,6 +32,7 @@
 		C2431EA121918C28009E8E51 /* Sync.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2431E9D21918C28009E8E51 /* Sync.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C2431EA421918E20009E8E51 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2431EA321918E20009E8E51 /* BaseViewModel.swift */; };
 		C2431EA621918EB2009E8E51 /* ManagerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2431EA521918EB2009E8E51 /* ManagerProvider.swift */; };
+		C2447F5321958E7900B10082 /* VocaRaidoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2447F5221958E7900B10082 /* VocaRaidoButton.swift */; };
 		C2941EEE218AF8B8008F0681 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2941EED218AF8B8008F0681 /* Alamofire.framework */; };
 		C2941EF1218AF8D8008F0681 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2941EF0218AF8D8008F0681 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C2941EF7218AFBBC008F0681 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2941EF2218AFBBC008F0681 /* RxSwift.framework */; };
@@ -66,6 +69,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C2103B8D2195926400FC11DB /* ExcerciseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseDetailViewController.swift; sourceTree = "<group>"; };
+		C2103B8F2195927600FC11DB /* ExcerciceDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciceDetailViewModel.swift; sourceTree = "<group>"; };
 		C224AD042163476700EE28FE /* Get4kVoca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Get4kVoca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C224AD072163476700EE28FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C224AD0E2163476900EE28FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -91,6 +96,7 @@
 		C2431E9D21918C28009E8E51 /* Sync.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sync.framework; path = Carthage/Build/iOS/Sync.framework; sourceTree = "<group>"; };
 		C2431EA321918E20009E8E51 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		C2431EA521918EB2009E8E51 /* ManagerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerProvider.swift; sourceTree = "<group>"; };
+		C2447F5221958E7900B10082 /* VocaRaidoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocaRaidoButton.swift; sourceTree = "<group>"; };
 		C2941EED218AF8B8008F0681 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		C2941EF0218AF8D8008F0681 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		C2941EF2218AFBBC008F0681 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
@@ -147,6 +153,7 @@
 		C224AD062163476700EE28FE /* Get4kVoca */ = {
 			isa = PBXGroup;
 			children = (
+				C2447F5121958E3B00B10082 /* CustomViews */,
 				C2FF9ADB21943F980096207F /* Models */,
 				C2431EA221918E08009E8E51 /* Base */,
 				C224AD202163482000EE28FE /* Extensions */,
@@ -243,10 +250,11 @@
 		C224AD2A216370A600EE28FE /* Exercise */ = {
 			isa = PBXGroup;
 			children = (
+				C2447F5021954C1200B10082 /* CustomCells */,
 				C224AD2B216370CA00EE28FE /* ExcerciseViewController.swift */,
 				C224AD2D216370DF00EE28FE /* ExcerciseViewModel.swift */,
-				C2FF9ADC219463830096207F /* UnitTableViewCell.swift */,
-				C2FF9ADE219463960096207F /* ExerciseTableViewCell.swift */,
+				C2103B8D2195926400FC11DB /* ExcerciseDetailViewController.swift */,
+				C2103B8F2195927600FC11DB /* ExcerciceDetailViewModel.swift */,
 			);
 			path = Exercise;
 			sourceTree = "<group>";
@@ -257,6 +265,23 @@
 				C2431EA321918E20009E8E51 /* BaseViewModel.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		C2447F5021954C1200B10082 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				C2FF9ADC219463830096207F /* UnitTableViewCell.swift */,
+				C2FF9ADE219463960096207F /* ExerciseTableViewCell.swift */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		C2447F5121958E3B00B10082 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				C2447F5221958E7900B10082 /* VocaRaidoButton.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		C2941EEC218AF8B8008F0681 /* Frameworks */ = {
@@ -409,6 +434,7 @@
 				C2FF9ADD219463830096207F /* UnitTableViewCell.swift in Sources */,
 				C2431E83219185DA009E8E51 /* DataManager.swift in Sources */,
 				C2431EA621918EB2009E8E51 /* ManagerProvider.swift in Sources */,
+				C2447F5321958E7900B10082 /* VocaRaidoButton.swift in Sources */,
 				C2FF9ADA21943F8F0096207F /* Question+CoreDataProperties.swift in Sources */,
 				C224AD3421637A7700EE28FE /* QuestionManager.swift in Sources */,
 				C2FF9ADF219463960096207F /* ExerciseTableViewCell.swift in Sources */,
@@ -416,6 +442,8 @@
 				C224AD2C216370CA00EE28FE /* ExcerciseViewController.swift in Sources */,
 				C2FF9AD62194393C0096207F /* ExerciseSectionViewModel.swift in Sources */,
 				C2431EA421918E20009E8E51 /* BaseViewModel.swift in Sources */,
+				C2103B8E2195926400FC11DB /* ExcerciseDetailViewController.swift in Sources */,
+				C2103B902195927600FC11DB /* ExcerciceDetailViewModel.swift in Sources */,
 				C224AD312163783E00EE28FE /* Voca4kWords.xcdatamodeld in Sources */,
 				C224AD242163635200EE28FE /* HomeViewController.swift in Sources */,
 				C224AD2E216370DF00EE28FE /* ExcerciseViewModel.swift in Sources */,

@@ -13,7 +13,7 @@ class UnitTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
   
     func setup(with title: String) {
-        titleLabel.text = title
+        titleLabel.text = "Unit \(title)"
     }
 
 }

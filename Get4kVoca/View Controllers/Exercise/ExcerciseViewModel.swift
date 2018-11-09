@@ -28,6 +28,7 @@ class ExcerciseViewModel: BaseViewModel {
     override init(managerProvider: ManagerProvider = ManagerProvider.sharedInstance) {
         questionManager = managerProvider.questionManager
         dataManager = managerProvider.dataManager
+        
         let unitsFetchRequest = NSFetchRequest<Question>(entityName: Question.voca_entityName)
         unitsFetchRequest.sortDescriptors = [NSSortDescriptor(key: "unit", ascending: false)]
         unitsFetchRequest.returnsObjectsAsFaults = false
@@ -53,22 +54,25 @@ class ExcerciseViewModel: BaseViewModel {
     }
     
     fileprivate func updateUnitViewModels() {
-        unitDataSource = unitsViewModels()
+        unitsViewModels()
         reloadTableViewSubject.onNext(())
     }
     
-    func unitsViewModels() -> [UnitSectionViewModel] {
-        guard let fetchedUnits = unitsFetchedResultsController.sections else { return [] }
+    func unitsViewModels() {
+        guard let fetchedUnits = unitsFetchedResultsController.sections else { return }
         
-        return fetchedUnits.compactMap { section in
+        let  result : [UnitSectionViewModel] = fetchedUnits.compactMap { section in
             guard let fetchedUnit = section.objects as? [Question] else { return nil }
-            return UnitSectionViewModel(unit: section.name, questions: fetchedUnit)
+            return .init(unit: section.name, questions: fetchedUnit)
         }
+        unitDataSource = result.filter({ $0.unit != "" }) .sorted(by: { Int($0.unit) ?? 0 < Int($1.unit) ?? 0})
+        print(unitDataSource)
+        initExpandList()
     }
     
     
     func initExpandList() {
-        guard unitDataSource.count > 1 else {
+        guard unitDataSource.count > 0 else {
             return
         }
         expandList = [Bool](repeating: false, count: unitDataSource.count)
