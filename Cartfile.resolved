@@ -1,0 +1,5 @@
+github "Alamofire/Alamofire" "4.7.3"
+github "CocoaLumberjack/CocoaLumberjack" "3.4.2"
+github "ReactiveX/RxSwift" "4.4.0"
+github "SwiftyJSON/SwiftyJSON" "4.2.0"
+github "SyncDB/Sync" "5.1.0"

@@ -1,0 +1,6 @@
+
+github "CocoaLumberjack/CocoaLumberjack"
+github "SyncDB/Sync"
+github "SwiftyJSON/SwiftyJSON"
+github "ReactiveX/RxSwift"
+github "Alamofire/Alamofire"
