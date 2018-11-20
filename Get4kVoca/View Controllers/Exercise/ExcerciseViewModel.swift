@@ -70,12 +70,19 @@ class ExcerciseViewModel: BaseViewModel {
         initExpandList()
     }
     
-    
     func initExpandList() {
         guard unitDataSource.count > 0 else {
             return
         }
         expandList = [Bool](repeating: false, count: unitDataSource.count)
+    }
+    
+    func selectedExercise(indexPath: IndexPath) -> ExerciseViewModel? {
+        let unit =  unitDataSource[indexPath.section]
+        guard let exerciseViewModel = unit.loadExercise(by: unit.exercises[indexPath.row - 1]) else {
+            return nil
+        }
+        return exerciseViewModel
     }
     
 }

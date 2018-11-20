@@ -21,6 +21,12 @@ class ExcerciseViewController: UIViewController {
             self?.tableView.reloadData()
         }).disposed(by: disposeBag)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == ExcerciseDetailViewController.voca_identifier, let controller = segue.destination as? ExcerciseDetailViewController, let selectedRowIndexPath = tableView.indexPathForSelectedRow, let selectedExercise = viewModel.selectedExercise(indexPath: selectedRowIndexPath) {
+            controller.setup(excersice: selectedExercise)
+        }
+    }
 }
 
 extension ExcerciseViewController : UITableViewDelegate, UITableViewDataSource {

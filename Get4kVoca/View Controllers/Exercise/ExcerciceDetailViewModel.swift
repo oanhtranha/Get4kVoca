@@ -10,8 +10,14 @@ import Foundation
 
 class ExcerciceDetailViewModel: BaseViewModel {
     
+    var exerciseViewModel: ExerciseViewModel?
+    
     
     override init(managerProvider: ManagerProvider) {
         super.init(managerProvider: managerProvider)
+    }
+    
+    func setup(excercise: ExerciseViewModel) {
+        exerciseViewModel = excercise
     }
 }
