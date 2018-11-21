@@ -25,16 +25,38 @@ class ExcerciseDetailViewController: UIViewController {
 
 extension ExcerciseDetailViewController : UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.exerciseViewModel?.parts.count ?? 1
+        guard let countPart = viewModel.exerciseViewModel?.parts.count, countPart > 0 else {
+            return 1
+        }
+        return countPart
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // First will always be header
-        return viewModel.exerciseViewModel?.questions[section].count ?? 0
+        let numberQuestions = viewModel.exerciseViewModel?.questions[section].count ?? 0
+        guard let countPart = viewModel.exerciseViewModel?.parts.count, countPart > 1  else {
+            return numberQuestions
+        }
+        return numberQuestions + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let countPart = viewModel.exerciseViewModel?.parts.count, countPart == 0 else {
+            if indexPath.row == 0 {
+                if let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseHeaderCell.voca_identifier, for: indexPath) as? ExerciseHeaderCell {
+                    cell.setup(partTitle: viewModel.exerciseViewModel?.parts[indexPath.section] ?? "")
+                    return cell
+                }
+            } else {
+                if let cell = tableView.dequeueReusableCell(withIdentifier: TypeABCDCell.voca_identifier, for: indexPath) as? TypeABCDCell {
+                    cell.setup(question: viewModel.exerciseViewModel?.questions[indexPath.section][indexPath.row - 1])
+                    return cell
+                }
+            }
+            return UITableViewCell()
+        }
+        
         if let cell = tableView.dequeueReusableCell(withIdentifier: TypeABCDCell.voca_identifier, for: indexPath) as? TypeABCDCell {
+            cell.setup(question: viewModel.exerciseViewModel?.questions[indexPath.section][indexPath.row])
             return cell
         }
         return UITableViewCell()
@@ -44,11 +66,14 @@ extension ExcerciseDetailViewController : UITableViewDelegate, UITableViewDataSo
       
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModel.exerciseViewModel?.parts[section] ?? ""
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if let countPart = viewModel.exerciseViewModel?.parts.count, countPart > 1, indexPath.row == 0 {
+            return 45
+        }
         return 135
     }
 }

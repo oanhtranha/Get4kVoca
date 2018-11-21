@@ -12,6 +12,7 @@
 		C20157E821A4048A0019E4E0 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20157E721A4048A0019E4E0 /* UIView+Extensions.swift */; };
 		C2103B8E2195926400FC11DB /* ExcerciseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2103B8D2195926400FC11DB /* ExcerciseDetailViewController.swift */; };
 		C2103B902195927600FC11DB /* ExcerciceDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2103B8F2195927600FC11DB /* ExcerciceDetailViewModel.swift */; };
+		C221D02121A5565F00B9F32E /* ExerciseHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221D02021A5565F00B9F32E /* ExerciseHeaderCell.swift */; };
 		C224AD082163476700EE28FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C224AD072163476700EE28FE /* AppDelegate.swift */; };
 		C224AD0F2163476900EE28FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C224AD0E2163476900EE28FE /* Assets.xcassets */; };
 		C224AD122163476900EE28FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C224AD102163476900EE28FE /* LaunchScreen.storyboard */; };
@@ -77,6 +78,7 @@
 		C20157E721A4048A0019E4E0 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		C2103B8D2195926400FC11DB /* ExcerciseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciseDetailViewController.swift; sourceTree = "<group>"; };
 		C2103B8F2195927600FC11DB /* ExcerciceDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcerciceDetailViewModel.swift; sourceTree = "<group>"; };
+		C221D02021A5565F00B9F32E /* ExerciseHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseHeaderCell.swift; sourceTree = "<group>"; };
 		C224AD042163476700EE28FE /* Get4kVoca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Get4kVoca.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C224AD072163476700EE28FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C224AD0E2163476900EE28FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				C2FF9ADC219463830096207F /* UnitTableViewCell.swift */,
 				C2FF9ADE219463960096207F /* ExerciseTableViewCell.swift */,
 				C20157E321A402240019E4E0 /* TypeABCDCell.swift */,
+				C221D02021A5565F00B9F32E /* ExerciseHeaderCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				C20157E621A4024E0019E4E0 /* TypeTextCell.swift in Sources */,
 				C2FF9ADF219463960096207F /* ExerciseTableViewCell.swift in Sources */,
 				C224AD26216363FF00EE28FE /* HomeViewModel.swift in Sources */,
+				C221D02121A5565F00B9F32E /* ExerciseHeaderCell.swift in Sources */,
 				C224AD2C216370CA00EE28FE /* ExcerciseViewController.swift in Sources */,
 				C2FF9AD62194393C0096207F /* ExerciseSectionViewModel.swift in Sources */,
 				C2431EA421918E20009E8E51 /* BaseViewModel.swift in Sources */,
