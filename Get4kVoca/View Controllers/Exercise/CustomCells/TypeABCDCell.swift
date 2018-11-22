@@ -9,54 +9,60 @@
 import UIKit
 
 class TypeABCDCell: UITableViewCell {
-    @IBOutlet weak var viewContent: UIView!
-    @IBOutlet weak var keyAnswerView: UIView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var aButton: VocaRaidoButton!
-    @IBOutlet weak var bButton: VocaRaidoButton!
-    @IBOutlet weak var cButton: VocaRaidoButton!
-    @IBOutlet weak var dButton: VocaRaidoButton!
-    @IBOutlet weak var answerKeyLabel: UILabel!
-    private var question: Question?
-    var selectedAnswers: Dictionary<String,Bool> = ["a" : false, "b" : false, "c" : false, "d" : false]
-    func setup(question: Question?) {
-        if let ques = question {
-            titleLabel.text = ques.number
-            answerKeyLabel.text = ques.answer
-            self.question = ques
-        }
+    @IBOutlet private weak var viewContent: UIView!
+    @IBOutlet private weak var keyAnswerView: UIView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var aButton: VocaRaidoButton!
+    @IBOutlet private weak var bButton: VocaRaidoButton!
+    @IBOutlet private weak var cButton: VocaRaidoButton!
+    @IBOutlet private weak var dButton: VocaRaidoButton!
+    @IBOutlet private weak var answerKeyLabel: UILabel!
+    
+    var changeSelectedAnswersHandler: ((Dictionary<String,Bool>) -> Void)? = nil
+    private var question: QuestionItem?
+    private var selectedAnswers: Dictionary<String,Bool> = ["a" : false, "b" : false, "c" : false, "d" : false]
+    func setup(question: QuestionItem) {
+        titleLabel.text = String(format: "%@.", question.number)
+        answerKeyLabel.text = question.answer
+        self.question = question
     }
     
-    @IBAction func checkRadio(_ sender: VocaRaidoButton) {
-        switch sender {
-        case aButton:
-            aButton.isSelected = !aButton.isSelected
-            selectedAnswers["a"] = aButton.isSelected
-        case bButton:
-            bButton.isSelected = !bButton.isSelected
-            selectedAnswers["b"] = bButton.isSelected
-        case cButton:
-            cButton.isSelected = !cButton.isSelected
-            selectedAnswers["c"] = cButton.isSelected
-        default:
-            dButton.isSelected = !dButton.isSelected
-            selectedAnswers["d"] = dButton.isSelected
-        }
+    @IBAction private func checkAButton(_ sender: Any) {
+        aButton.isSelected = !aButton.isSelected
+        selectedAnswers["a"] = aButton.isSelected
     }
     
-    func finalAnswer() -> String {
-        var finalAnswer: String = ""
-        for answer in selectedAnswers {
-            finalAnswer.append(answer.value ? answer.key : "")
-        }
-        return finalAnswer
+    @IBAction private func checkBButton(_ sender: Any) {
+        bButton.isSelected = !bButton.isSelected
+        selectedAnswers["b"] = bButton.isSelected
     }
     
-    func isCorrectAnswered() -> Bool {
-        if let question = question {
-           return finalAnswer().lowercased() == question.answer?.replacingOccurrences(of: ", ", with: "").lowercased()
-        }
-        return false
+    @IBAction private func checkCButton(_ sender: Any) {
+        cButton.isSelected = !cButton.isSelected
+        selectedAnswers["c"] = cButton.isSelected
     }
     
+    @IBAction private func checkDButton(_ sender: Any) {
+        dButton.isSelected = !dButton.isSelected
+        selectedAnswers["d"] = dButton.isSelected
+    }
+    
+    
+//    @IBAction private func checkRadio(_ sender: VocaRaidoButton) {
+//        switch sender {
+//        case aButton:
+//            aButton.isSelected = !aButton.isSelected
+//            selectedAnswers["a"] = aButton.isSelected
+//        case bButton:
+//            bButton.isSelected = !bButton.isSelected
+//            selectedAnswers["b"] = bButton.isSelected
+//        case cButton:
+//            cButton.isSelected = !cButton.isSelected
+//            selectedAnswers["c"] = cButton.isSelected
+//        default:
+//            dButton.isSelected = !dButton.isSelected
+//            selectedAnswers["d"] = dButton.isSelected
+//        }
+//        changeSelectedAnswersHandler?(selectedAnswers)
+//    }
 }

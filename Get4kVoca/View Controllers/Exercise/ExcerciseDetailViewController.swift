@@ -7,18 +7,41 @@
 //
 
 import UIKit
+import RxSwift
 
 class ExcerciseDetailViewController: UIViewController {
     
+    @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak var outlineButton: UIButton!
+    @IBOutlet weak var bottomTableConstraint: NSLayoutConstraint!
+    private var heightAnswerView: CGFloat = 0
     @IBOutlet var viewModel: ExcerciceDetailViewModel!
-    
+    private let disposeBag = DisposeBag()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        viewModel.completedTest.drive(onNext: { [weak self] value in
+            if value {
+                self?.bottomTableConstraint.constant = 50
+            } else {
+                self?.bottomTableConstraint.constant = 0
+            }
+        }).disposed(by: disposeBag)
+        viewModel.resultString.subscribe(onNext: { [weak self] string in
+            self?.resultLabel.text =  string
+        }).disposed(by: disposeBag)
     }
     
     func setup(excersice: ExerciseViewModel) {
         viewModel.setup(excercise: excersice)
+    }
+    
+    @IBAction func done(_ sender: Any) {
+        viewModel.calculateScore()
+    }
+    
+    @IBAction func outline(_ sender: Any) {
+        
     }
     
 }
@@ -47,16 +70,26 @@ extension ExcerciseDetailViewController : UITableViewDelegate, UITableViewDataSo
                     return cell
                 }
             } else {
-                if let cell = tableView.dequeueReusableCell(withIdentifier: TypeABCDCell.voca_identifier, for: indexPath) as? TypeABCDCell {
-                    cell.setup(question: viewModel.exerciseViewModel?.questions[indexPath.section][indexPath.row - 1])
+                if let cell = tableView.dequeueReusableCell(withIdentifier: TypeABCDCell.voca_identifier, for: indexPath) as? TypeABCDCell, var question = viewModel.exerciseViewModel?.questions[indexPath.section][indexPath.row - 1] {
+                    cell.setup(question: question)
+                    cell.changeSelectedAnswersHandler = { [weak self]  selectedAnswers in
+                        question.selectedAnswers = selectedAnswers
+                        question.isCorrectAnsered = self?.viewModel.checkCorrect(questionItem: question) ?? false
+                        self?.viewModel.updateAnswersForQuestion(question: question)
+                    }
                     return cell
                 }
             }
             return UITableViewCell()
         }
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: TypeABCDCell.voca_identifier, for: indexPath) as? TypeABCDCell {
-            cell.setup(question: viewModel.exerciseViewModel?.questions[indexPath.section][indexPath.row])
+        if let cell = tableView.dequeueReusableCell(withIdentifier: TypeABCDCell.voca_identifier, for: indexPath) as? TypeABCDCell, var question = viewModel.exerciseViewModel?.questions[indexPath.section][indexPath.row] {
+            cell.setup(question: question)
+            cell.changeSelectedAnswersHandler = { [weak self]  selectedAnswers in
+                question.selectedAnswers = selectedAnswers
+                question.isCorrectAnsered = self?.viewModel.checkCorrect(questionItem: question) ?? false
+                self?.viewModel.updateAnswersForQuestion(question: question)
+            }
             return cell
         }
         return UITableViewCell()
@@ -74,6 +107,6 @@ extension ExcerciseDetailViewController : UITableViewDelegate, UITableViewDataSo
         if let countPart = viewModel.exerciseViewModel?.parts.count, countPart > 1, indexPath.row == 0 {
             return 45
         }
-        return 135
+        return 55 + heightAnswerView
     }
 }

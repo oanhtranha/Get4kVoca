@@ -39,25 +39,49 @@ class UnitSectionViewModel {
 class ExerciseViewModel {
     let exercise: String
     var parts: [String] = []
-    var questions: [[Question]] = []
+    var questions: [[QuestionItem]] = []
     
     init(exercise: String?, questions: [Question]) {
         self.exercise = exercise ?? ""
-        groupQuestionsByPart(questions: questions)
+        groupQuestionsByPart(questionsOfExercise: questions)
     }
     
-    private func groupQuestionsByPart(questions: [Question]) {
-        guard let part = questions.first?.part, part.contains("Part") else {
-            self.questions = [questions]
+    private func groupQuestionsByPart(questionsOfExercise: [Question]) {
+        guard let part = questionsOfExercise.first?.part, part.contains("Part") else {
+            let questionItems = convertQuestionItems(questions: questionsOfExercise)
+            self.questions = [questionItems]
             return
         }
-        let partsGrouped = Dictionary(grouping: questions, by: { $0.part })
+        let partsGrouped = Dictionary(grouping: questionsOfExercise, by: { $0.part })
         let partsDictionary = partsGrouped.sorted{ $0.key ?? "" < $1.key ?? "" }
-            //.sorted(by: { Int($0.1.first?.number ?? "") ?? 0 < Int($1.1.first?.number ?? "") ?? 0  })
         parts = partsDictionary.compactMap { [weak self] (part, questionsOfPart) in
-            self?.questions.append(questionsOfPart.sorted(by: { Int($0.number ?? "") ?? 0 < Int($1.number ?? "") ?? 0}))
+            let questionItems = convertQuestionItems(questions: questionsOfPart)
+            self?.questions.append(questionItems.sorted(by: { Int($0.number) ?? 0 < Int($1.number) ?? 0}))
             return part
         }
     }
     
+    private func convertQuestionItems(questions: [Question]) -> [QuestionItem] {
+        return questions.compactMap { question in
+            let id = String(format: "%d%@%@", question.unit, question.exercise ?? "", question.part ?? "").replacingOccurrences(of: " ", with: "")
+            return QuestionItem(id: id, number: question.number ?? "", answer: question.answer ?? "")
+        }
+    }
+    
+}
+
+struct QuestionItem {
+    let id: String
+    let number: String
+    let answer: String
+    var selectedAnswers: Dictionary<String,Bool>?
+    var isCorrectAnsered: Bool
+    
+    init(id: String, number: String, answer: String, selectedAnswers: Dictionary<String,Bool> = ["a" : false, "b" : false, "c" : false, "d" : false], isCorrectAnsered: Bool = false) {
+        self.id = id
+        self.number = number
+        self.answer = answer
+        self.selectedAnswers =  selectedAnswers
+        self.isCorrectAnsered = isCorrectAnsered
+    }
 }
