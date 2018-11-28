@@ -63,7 +63,7 @@ class ExerciseViewModel {
     
     private func convertQuestionItems(questions: [Question]) -> [QuestionItem] {
         return questions.compactMap { question in
-            let id = String(format: "%d%@%@", question.unit, question.exercise ?? "", question.part ?? "").replacingOccurrences(of: " ", with: "")
+            let id = String(format: "%d%@%@%@", question.unit, question.exercise ?? "", question.part ?? "", question.number ?? "").replacingOccurrences(of: " ", with: "")
             return QuestionItem(id: id, number: question.number ?? "", answer: question.answer ?? "")
         }
     }

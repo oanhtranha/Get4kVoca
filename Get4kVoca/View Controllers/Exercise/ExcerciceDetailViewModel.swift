@@ -16,7 +16,9 @@ class ExcerciceDetailViewModel: BaseViewModel {
     var exerciseViewModel: ExerciseViewModel?
     var completedTest : Driver<Bool> { return completedTestSubject.asDriver(onErrorJustReturn: false) }
     var resultString: Observable<String> { return _resultString }
+    var showAnswerView: Driver<Bool> { return  showAnswerViewSubject.asDriver(onErrorJustReturn: false) }
    
+    private var showAnswerViewSubject = BehaviorSubject(value: false )
     private var completedTestSubject = BehaviorSubject(value: false )
     private var _resultString = PublishSubject<String>()
     private var resultList : [QuestionItem] = []
@@ -32,6 +34,10 @@ class ExcerciceDetailViewModel: BaseViewModel {
                 resultList.append(contentsOf: questions)
             }
         }
+    }
+    
+    func outline() {
+        showAnswerViewSubject.onNext(true)
     }
     
     func calculateScore() {
@@ -51,6 +57,10 @@ class ExcerciceDetailViewModel: BaseViewModel {
             resultList.remove(at: indexQues)
             resultList.insert(question, at: indexQues)
         }
+    }
+    
+    func questionItem(questionId: String) -> QuestionItem? {
+         return resultList.filter({ $0.id == questionId }).first
     }
     
     func checkCorrect(questionItem: QuestionItem) -> Bool {

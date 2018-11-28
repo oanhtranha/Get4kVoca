@@ -30,6 +30,15 @@ class ExcerciseDetailViewController: UIViewController {
         viewModel.resultString.subscribe(onNext: { [weak self] string in
             self?.resultLabel.text =  string
         }).disposed(by: disposeBag)
+        
+        viewModel.showAnswerView.drive(onNext: { [weak self] value in
+            if value {
+                self?.heightAnswerView = 25
+                self?.table.reloadData()
+            } else {
+                self?.heightAnswerView = 0
+            }
+        }).disposed(by: disposeBag)
     }
     
     func setup(excersice: ExerciseViewModel) {
@@ -41,7 +50,7 @@ class ExcerciseDetailViewController: UIViewController {
     }
     
     @IBAction func outline(_ sender: Any) {
-        
+        viewModel.outline()
     }
     
 }
@@ -63,34 +72,35 @@ extension ExcerciseDetailViewController : UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let countPart = viewModel.exerciseViewModel?.parts.count, countPart == 0 else {
+        if let countPart = viewModel.exerciseViewModel?.parts.count, countPart > 0 {
             if indexPath.row == 0 {
                 if let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseHeaderCell.voca_identifier, for: indexPath) as? ExerciseHeaderCell {
                     cell.setup(partTitle: viewModel.exerciseViewModel?.parts[indexPath.section] ?? "")
                     return cell
                 }
             } else {
-                if let cell = tableView.dequeueReusableCell(withIdentifier: TypeABCDCell.voca_identifier, for: indexPath) as? TypeABCDCell, var question = viewModel.exerciseViewModel?.questions[indexPath.section][indexPath.row - 1] {
-                    cell.setup(question: question)
-                    cell.changeSelectedAnswersHandler = { [weak self]  selectedAnswers in
-                        question.selectedAnswers = selectedAnswers
+                if let cell = tableView.dequeueReusableCell(withIdentifier: TypeABCDCell.voca_identifier, for: indexPath) as? TypeABCDCell, var question =  viewModel.exerciseViewModel?.questions[indexPath.section][indexPath.row - 1], let questionItem = viewModel.questionItem(questionId: question.id){
+                    cell.setup(question: questionItem)
+                    print("Row: \(indexPath.section) - \(indexPath.row) : \(questionItem.id) \(questionItem.selectedAnswers)")
+                    cell.changeSelectedAnswersHandler = { [weak self]  (key,value) in
+                        question.selectedAnswers?[key] = value
                         question.isCorrectAnsered = self?.viewModel.checkCorrect(questionItem: question) ?? false
                         self?.viewModel.updateAnswersForQuestion(question: question)
                     }
+                    cell.keyAnswerView.backgroundColor = question.isCorrectAnsered ? UIColor.green : UIColor.red
                     return cell
                 }
             }
-            return UITableViewCell()
-        }
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: TypeABCDCell.voca_identifier, for: indexPath) as? TypeABCDCell, var question = viewModel.exerciseViewModel?.questions[indexPath.section][indexPath.row] {
-            cell.setup(question: question)
-            cell.changeSelectedAnswersHandler = { [weak self]  selectedAnswers in
-                question.selectedAnswers = selectedAnswers
-                question.isCorrectAnsered = self?.viewModel.checkCorrect(questionItem: question) ?? false
-                self?.viewModel.updateAnswersForQuestion(question: question)
+        } else {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: TypeABCDCell.voca_identifier, for: indexPath) as? TypeABCDCell, var question = viewModel.exerciseViewModel?.questions[indexPath.section][indexPath.row], let questionItem = viewModel.questionItem(questionId: question.id){
+                cell.setup(question: questionItem)
+                cell.changeSelectedAnswersHandler = { [weak self]  (key,value) in
+                    question.selectedAnswers?[key] = value
+                    question.isCorrectAnsered = self?.viewModel.checkCorrect(questionItem: question) ?? false
+                    self?.viewModel.updateAnswersForQuestion(question: question)
+                }
+                return cell
             }
-            return cell
         }
         return UITableViewCell()
     }

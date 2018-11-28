@@ -207,7 +207,7 @@
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                     <connections>
-                                                                        <action selector="checkAButton:" destination="Uy3-2G-AVc" eventType="touchUpInside" id="YzF-PA-o2I"/>
+                                                                        <action selector="checkRadio:" destination="Uy3-2G-AVc" eventType="touchUpInside" id="rFp-cI-eF2"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -248,7 +248,7 @@
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                     <connections>
-                                                                        <action selector="checkBButton:" destination="Uy3-2G-AVc" eventType="touchUpInside" id="rAr-9U-cx3"/>
+                                                                        <action selector="checkRadio:" destination="Uy3-2G-AVc" eventType="touchUpInside" id="b5w-9O-ne4"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -289,7 +289,7 @@
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                     <connections>
-                                                                        <action selector="checkCButton:" destination="Uy3-2G-AVc" eventType="touchUpInside" id="WYQ-GS-KDF"/>
+                                                                        <action selector="checkRadio:" destination="Uy3-2G-AVc" eventType="touchUpInside" id="Vy5-LG-6OO"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -330,7 +330,7 @@
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                     <connections>
-                                                                        <action selector="checkDButton:" destination="Uy3-2G-AVc" eventType="touchUpInside" id="OAW-Jn-O69"/>
+                                                                        <action selector="checkRadio:" destination="Uy3-2G-AVc" eventType="touchUpInside" id="xGv-GT-MK4"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -367,7 +367,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fV6-Og-eEt" userLabel="ViewAnswer">
-                                                    <rect key="frame" x="0.0" y="53" width="320" height="25"/>
+                                                    <rect key="frame" x="0.0" y="56" width="320" height="25"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scc-fa-fCl">
                                                             <rect key="frame" x="213" y="2" width="72" height="21"/>
@@ -411,7 +411,7 @@
                                                 <constraint firstItem="vxF-AU-Iv1" firstAttribute="centerX" secondItem="mWS-wu-a51" secondAttribute="centerX" id="Dmm-m0-xn3"/>
                                                 <constraint firstItem="vxF-AU-Iv1" firstAttribute="width" secondItem="mWS-wu-a51" secondAttribute="width" id="OQw-4C-aaV"/>
                                                 <constraint firstItem="fV6-Og-eEt" firstAttribute="centerX" secondItem="vxF-AU-Iv1" secondAttribute="centerX" id="Qf2-kB-HOf"/>
-                                                <constraint firstItem="fV6-Og-eEt" firstAttribute="top" secondItem="vxF-AU-Iv1" secondAttribute="bottom" constant="10" id="WS4-v4-V3y"/>
+                                                <constraint firstItem="fV6-Og-eEt" firstAttribute="top" secondItem="vxF-AU-Iv1" secondAttribute="bottom" constant="13" id="WS4-v4-V3y"/>
                                                 <constraint firstItem="fV6-Og-eEt" firstAttribute="width" secondItem="vxF-AU-Iv1" secondAttribute="width" id="cFv-Fy-nle"/>
                                             </constraints>
                                         </tableViewCellContentView>
