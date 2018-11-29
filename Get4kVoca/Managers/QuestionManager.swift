@@ -10,9 +10,18 @@ import Foundation
 import SwiftyJSON
 import CocoaLumberjackSwift
 
-enum TypeAnswer {
-    case abcd
-    case text
+enum TypeAnswer: String {
+    case unknown
+    case abcd = "abcd"
+    case text = "text"
+
+    init(fromString string: String?) {
+        guard let string = string, let value = TypeAnswer(rawValue: string) else {
+            self = .unknown
+            return
+        }
+        self = value
+    }
 }
 
 struct QuestionFF {

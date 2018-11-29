@@ -7,18 +7,29 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class TypeTextCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet private weak var viewContent: UIView!
+    @IBOutlet private weak var questionView: UIView!
+    @IBOutlet weak var answerKeyView: UIView!
+    @IBOutlet private weak var nunberLabel: UILabel!
+    @IBOutlet private weak var answerTextView: UITextView!
+    @IBOutlet private weak var answerKeyLabel: UILabel!
+    private let disposeBag = DisposeBag()
+    private var question: QuestionItem?
+    var answerText = Variable<String?>(nil)
+    
+    func setup(question: QuestionItem) {
+        nunberLabel.text = String(format: "%@.", question.number)
+        answerKeyLabel.text = question.answer
+        self.question = question
+        self.answerTextView.text = question.answer
+        answerText
+            .asObservable()
+            .bind(to: answerTextView.rx.text)
+            .disposed(by: disposeBag)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

@@ -45,6 +45,7 @@
 		C2941F01218AFC34008F0681 /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2941EFC218AFC34008F0681 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C2941F04218AFC34008F0681 /* SwiftyJSON.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2941EFF218AFC34008F0681 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C2941F05218AFC34008F0681 /* RxCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2941F00218AFC34008F0681 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2B7FAB621AFF09F00120336 /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B7FAB521AFF09E00120336 /* UIViewController+Keyboard.swift */; };
 		C2FF9AD62194393C0096207F /* ExerciseSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FF9AD52194393C0096207F /* ExerciseSectionViewModel.swift */; };
 		C2FF9AD921943F8F0096207F /* Question+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FF9AD721943F8F0096207F /* Question+CoreDataClass.swift */; };
 		C2FF9ADA21943F8F0096207F /* Question+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FF9AD821943F8F0096207F /* Question+CoreDataProperties.swift */; };
@@ -115,6 +116,7 @@
 		C2941EFE218AFC34008F0681 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		C2941EFF218AFC34008F0681 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		C2941F00218AFC34008F0681 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		C2B7FAB521AFF09E00120336 /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		C2FF9AD52194393C0096207F /* ExerciseSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSectionViewModel.swift; sourceTree = "<group>"; };
 		C2FF9AD721943F8F0096207F /* Question+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Question+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C2FF9AD821943F8F0096207F /* Question+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Question+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				C20157E721A4048A0019E4E0 /* UIView+Extensions.swift */,
+				C2B7FAB521AFF09E00120336 /* UIViewController+Keyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2B7FAB621AFF09F00120336 /* UIViewController+Keyboard.swift in Sources */,
 				C20157E821A4048A0019E4E0 /* UIView+Extensions.swift in Sources */,
 				C224AD082163476700EE28FE /* AppDelegate.swift in Sources */,
 				C20157E421A402240019E4E0 /* TypeABCDCell.swift in Sources */,

@@ -17,7 +17,8 @@ class ExcerciceDetailViewModel: BaseViewModel {
     var completedTest : Driver<Bool> { return completedTestSubject.asDriver(onErrorJustReturn: false) }
     var resultString: Observable<String> { return _resultString }
     var showAnswerView: Driver<Bool> { return  showAnswerViewSubject.asDriver(onErrorJustReturn: false) }
-   
+    var indexRowDelta: Int = 0
+    
     private var showAnswerViewSubject = BehaviorSubject(value: false )
     private var completedTestSubject = BehaviorSubject(value: false )
     private var _resultString = PublishSubject<String>()
@@ -28,6 +29,9 @@ class ExcerciceDetailViewModel: BaseViewModel {
     
     func setup(excercise: ExerciseViewModel) {
         exerciseViewModel = excercise
+        if let countPart = exerciseViewModel?.parts.count, countPart > 0 {
+            indexRowDelta = 1
+        }
         _resultString.onNext("....")
         if let questionOfExercise = exerciseViewModel?.questions {
             for questions in questionOfExercise {
@@ -65,12 +69,14 @@ class ExcerciceDetailViewModel: BaseViewModel {
     
     func checkCorrect(questionItem: QuestionItem) -> Bool {
         var finalAnswer: String = ""
-        guard let selectedAnswers = questionItem.selectedAnswers else {
-            return false
+        if questionItem.type == .abcd, let selectedAnswers = questionItem.selectedAnswers {
+            for answer in selectedAnswers {
+                finalAnswer.append(answer.value ? answer.key : "")
+            }
+        } else {
+            finalAnswer = questionItem.textAnswer
         }
-        for answer in selectedAnswers {
-            finalAnswer.append(answer.value ? answer.key : "")
-        }
+        
         let correctAnswer = questionItem.answer.replacingOccurrences(of: ", ", with: "").replacingOccurrences(of: " ", with: "")
         return finalAnswer.lowercased() == correctAnswer.lowercased()
     }

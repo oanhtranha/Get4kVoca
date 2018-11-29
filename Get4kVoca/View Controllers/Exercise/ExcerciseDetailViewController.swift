@@ -9,12 +9,13 @@
 import UIKit
 import RxSwift
 
-class ExcerciseDetailViewController: UIViewController {
+class ExcerciseDetailViewController: UIViewController, KeyboardAvoidable {
     
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var outlineButton: UIButton!
     @IBOutlet weak var bottomTableConstraint: NSLayoutConstraint!
+    @IBOutlet weak var resultBottomViewConstraint: NSLayoutConstraint!
     private var heightAnswerView: CGFloat = 0
     @IBOutlet var viewModel: ExcerciceDetailViewModel!
     private let disposeBag = DisposeBag()
@@ -22,9 +23,9 @@ class ExcerciseDetailViewController: UIViewController {
         super.viewDidLoad()
         viewModel.completedTest.drive(onNext: { [weak self] value in
             if value {
-                self?.bottomTableConstraint.constant = 50
+                self?.resultBottomViewConstraint.constant = 0
             } else {
-                self?.bottomTableConstraint.constant = 0
+                self?.resultBottomViewConstraint.constant = -50
             }
         }).disposed(by: disposeBag)
         viewModel.resultString.subscribe(onNext: { [weak self] string in
@@ -41,11 +42,22 @@ class ExcerciseDetailViewController: UIViewController {
         }).disposed(by: disposeBag)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addKeyboardObservers(forConstraints: [bottomTableConstraint])
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeKeyboardObservers()
+    }
+    
     func setup(excersice: ExerciseViewModel) {
         viewModel.setup(excercise: excersice)
     }
     
     @IBAction func done(_ sender: Any) {
+        view.endEditing(true)
         viewModel.calculateScore()
     }
     
@@ -72,34 +84,31 @@ extension ExcerciseDetailViewController : UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let countPart = viewModel.exerciseViewModel?.parts.count, countPart > 0 {
-            if indexPath.row == 0 {
-                if let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseHeaderCell.voca_identifier, for: indexPath) as? ExerciseHeaderCell {
-                    cell.setup(partTitle: viewModel.exerciseViewModel?.parts[indexPath.section] ?? "")
-                    return cell
-                }
-            } else {
-                if let cell = tableView.dequeueReusableCell(withIdentifier: TypeABCDCell.voca_identifier, for: indexPath) as? TypeABCDCell, var question =  viewModel.exerciseViewModel?.questions[indexPath.section][indexPath.row - 1], let questionItem = viewModel.questionItem(questionId: question.id){
-                    cell.setup(question: questionItem)
-                    print("Row: \(indexPath.section) - \(indexPath.row) : \(questionItem.id) \(questionItem.selectedAnswers)")
-                    cell.changeSelectedAnswersHandler = { [weak self]  (key,value) in
-                        question.selectedAnswers?[key] = value
-                        question.isCorrectAnsered = self?.viewModel.checkCorrect(questionItem: question) ?? false
-                        self?.viewModel.updateAnswersForQuestion(question: question)
-                    }
-                    cell.keyAnswerView.backgroundColor = question.isCorrectAnsered ? UIColor.green : UIColor.red
-                    return cell
-                }
+        if viewModel.indexRowDelta > 0, indexPath.row == 0 {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseHeaderCell.voca_identifier, for: indexPath) as? ExerciseHeaderCell {
+                cell.setup(partTitle: viewModel.exerciseViewModel?.parts[indexPath.section] ?? "")
+                return cell
             }
         } else {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: TypeABCDCell.voca_identifier, for: indexPath) as? TypeABCDCell, var question = viewModel.exerciseViewModel?.questions[indexPath.section][indexPath.row], let questionItem = viewModel.questionItem(questionId: question.id){
-                cell.setup(question: questionItem)
-                cell.changeSelectedAnswersHandler = { [weak self]  (key,value) in
-                    question.selectedAnswers?[key] = value
-                    question.isCorrectAnsered = self?.viewModel.checkCorrect(questionItem: question) ?? false
-                    self?.viewModel.updateAnswersForQuestion(question: question)
+            if let question =  viewModel.exerciseViewModel?.questions[indexPath.section][indexPath.row - viewModel.indexRowDelta], var questionItem = viewModel.questionItem(questionId: question.id) {
+                if question.type == .abcd, let cell = tableView.dequeueReusableCell(withIdentifier: TypeABCDCell.voca_identifier, for: indexPath) as? TypeABCDCell {
+                    cell.setup(question: questionItem)
+                    cell.changeSelectedAnswersHandler = { [weak self]  (key,value) in
+                        questionItem.selectedAnswers?[key] = value
+                        questionItem.isCorrectAnsered = self?.viewModel.checkCorrect(questionItem: questionItem) ?? false
+                        self?.viewModel.updateAnswersForQuestion(question: questionItem)
+                    }
+                    cell.keyAnswerView.backgroundColor = questionItem.isCorrectAnsered ? UIColor.green : UIColor.red
+                    return cell
+                } else if question.type == .text, let cell = tableView.dequeueReusableCell(withIdentifier: TypeTextCell.voca_identifier, for: indexPath) as? TypeTextCell {
+                    cell.setup(question: questionItem)
+                    cell.answerText.asObservable().subscribe(onNext: { [weak self]  string in
+                        questionItem.textAnswer = string ?? ""
+                        questionItem.isCorrectAnsered = self?.viewModel.checkCorrect(questionItem: questionItem) ?? false
+                    }).disposed(by: disposeBag)
+                    cell.answerKeyView.backgroundColor = questionItem.isCorrectAnsered ? UIColor.green : UIColor.red
+                    return cell
                 }
-                return cell
             }
         }
         return UITableViewCell()
@@ -114,8 +123,10 @@ extension ExcerciseDetailViewController : UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if let countPart = viewModel.exerciseViewModel?.parts.count, countPart > 1, indexPath.row == 0 {
+        if viewModel.indexRowDelta > 0, indexPath.row == 0 {
             return 45
+        } else if let question =  viewModel.exerciseViewModel?.questions[indexPath.section][indexPath.row - viewModel.indexRowDelta], question.type == .text {
+            return heightAnswerView == 0 ? 60 : 120
         }
         return 55 + heightAnswerView
     }

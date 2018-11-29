@@ -64,7 +64,7 @@ class ExerciseViewModel {
     private func convertQuestionItems(questions: [Question]) -> [QuestionItem] {
         return questions.compactMap { question in
             let id = String(format: "%d%@%@%@", question.unit, question.exercise ?? "", question.part ?? "", question.number ?? "").replacingOccurrences(of: " ", with: "")
-            return QuestionItem(id: id, number: question.number ?? "", answer: question.answer ?? "")
+            return QuestionItem(id: id, number: question.number ?? "", answer: question.answer ?? "", answerType: question.typeAnswer)
         }
     }
     
@@ -74,14 +74,18 @@ struct QuestionItem {
     let id: String
     let number: String
     let answer: String
+    let type: TypeAnswer
     var selectedAnswers: Dictionary<String,Bool>?
+    var textAnswer: String
     var isCorrectAnsered: Bool
     
-    init(id: String, number: String, answer: String, selectedAnswers: Dictionary<String,Bool> = ["a" : false, "b" : false, "c" : false, "d" : false], isCorrectAnsered: Bool = false) {
+    init(id: String, number: String, answer: String, answerType: String?, selectedAnswers: Dictionary<String,Bool> = ["a" : false, "b" : false, "c" : false, "d" : false], isCorrectAnsered: Bool = false, textAnswer: String = "") {
         self.id = id
         self.number = number
         self.answer = answer
+        self.type = TypeAnswer.init(fromString: answerType)
         self.selectedAnswers =  selectedAnswers
+        self.textAnswer = textAnswer
         self.isCorrectAnsered = isCorrectAnsered
     }
 }
